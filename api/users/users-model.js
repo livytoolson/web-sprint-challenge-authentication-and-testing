@@ -8,7 +8,7 @@ module.exports = {
 
 function findById(id) {
     return db('users')
-    .select('id', 'username') // do i need to return password?
+    .select('id', 'username', 'password') // do i need to return password?
     .where({ id })
     .first()
 }

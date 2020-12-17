@@ -54,7 +54,7 @@ describe('endpoints', () => {
       expect(JSON.stringify(res.body)).toMatch('invalid credentials')
     })
   })
-  describe('[GET /api/jokes', () => {
+  describe('[GET] /api/jokes', () => {
     it('', async () => {
 
     })
