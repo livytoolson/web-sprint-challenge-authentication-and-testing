@@ -3,7 +3,7 @@ const User = require('../users/users-model');
 const validatePayload = (req, res, next) => {
     let { username, password } = req.body
     if (!username || !password ) {
-      res.status(401).json('username and password required')
+      res.status(400).json('username and password required')
     } else {
       next()
     }
@@ -16,7 +16,7 @@ const checkUsernameUnique = async (req, res, next) => {
       if (!rows.length) {
         next()
       } else {
-        res.status(401).json('username taken')
+        res.status(400).json('username taken')
       }
     } catch (error) {
       res.status(500).json({ message: error.message })
@@ -30,7 +30,7 @@ const checkUsernameExists = async (req, res, next) => {
           req.userData = rows[0]
           next()
       } else {
-          res.status(401).json('invalid credentials')
+          res.status(400).json('invalid credentials')
       }
   } catch (error) {
       res.status(500).json({ message: error.message })
