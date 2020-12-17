@@ -30,7 +30,7 @@ router.post('/login', validatePayload, checkUsernameExists, async (req, res) => 
         token
       })
     } else {
-      res.status(401).json('You have no token, you shall not pass')
+      res.status(401).json('invalid credentials')
     }
   } catch (error) {
     res.status(500).json({ message: error.message })
